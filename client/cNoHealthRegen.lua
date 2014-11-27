@@ -18,7 +18,6 @@ function NoHealthRegen:Unload()
 end
 
 function NoHealthRegen:Main()
-  print(LocalPlayer:GetHealth() .. " before: " .. LocalPlayer:GetHealth() - lastHealth)
   changeHealth = LocalPlayer:GetHealth() - lastHealth
   if changeHealth < 0.003 and changeHealth > 0.001 then
     Network:Send("NaturalRegen", {["Player"] = LocalPlayer, ["ChangeTo"] = lastHealth})
